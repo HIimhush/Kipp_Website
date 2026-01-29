@@ -20,7 +20,7 @@ class RibbyModel {
     constructor(containerId, sectionSelector) {
         this.container = document.getElementById(containerId);
         this.section = document.querySelector(sectionSelector);
-        
+
         if (!this.container || !this.section) {
             console.error('RibbyModel: Container or section not found', {
                 container: containerId,
@@ -31,24 +31,24 @@ class RibbyModel {
 
         console.log('RibbyModel: Initializing...');
 
-     
+
         this.modelConfig = {
             position: {
-                x: -0.8,     
-                y: 0,   
-                z: -15,   
+                x: -0.8,
+                y: 0,
+                z: -15,
             },
-            
+
             // Initial rotation
             rotation: {
                 x: 0,      // Pitch
                 y: -1.8,     // Yaw
                 z: 0,      // Roll
             },
-            
+
             // Scale
             scale: 2.2,
-            
+
             // Mouse follow sensitivity
             mouseSensitivity: 1.4
         };
@@ -56,7 +56,7 @@ class RibbyModel {
 
         // Mouse position relative to section (normalized -1 to 1)
         this.mouse = { x: 0, y: 0 };
-        
+
         // The loaded 3D model
         this.model = null;
 
@@ -74,9 +74,9 @@ class RibbyModel {
         this.camera.position.set(0, 0, 0);
 
         // Create renderer with transparency
-        this.renderer = new THREE.WebGLRenderer({ 
-            alpha: true, 
-            antialias: true 
+        this.renderer = new THREE.WebGLRenderer({
+            alpha: true,
+            antialias: true
         });
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio for performance
@@ -85,7 +85,7 @@ class RibbyModel {
         // Add OrbitControls for DEBUGGING (can disable later)
         // this.controls = new OrbitControls(this.camera, this.renderer.domElement);
         // this.controls.enableDamping = true;
-        
+
         // Add lights
         this.setupLights();
 
@@ -117,18 +117,18 @@ class RibbyModel {
 
     loadModel() {
         console.log('RibbyModel: Starting model load...');
-        
+
         const loader = new GLTFLoader();
-        // Path adjusted for standard static serving, handling the space in filename
-        const modelPath = 'Recursos/3D_MODELS/RIBBY_3D_MODEL/RIBBY_3D%20MODELgltf.gltf';
-        
+        // Path to model in public directory (Vite serves public/ as root in production)
+        const modelPath = '/Recursos/3D_MODELS/RIBBY_3D_MODEL/RIBBY_3D MODELgltf.gltf';
+
         console.log('RibbyModel: Loading from path:', modelPath);
 
         loader.load(
             modelPath,
             (gltf) => {
                 console.log('RibbyModel: ✓ Model loaded successfully!');
-                
+
                 this.model = gltf.scene;
 
                 // Center the model geometry
@@ -151,7 +151,7 @@ class RibbyModel {
                     this.modelConfig.position.y,
                     this.modelConfig.position.z
                 );
-                
+
                 // Apply base rotation to the model itself or the group
                 this.modelGroup.rotation.set(
                     this.modelConfig.rotation.x,
@@ -183,7 +183,7 @@ class RibbyModel {
                 const rect = this.section.getBoundingClientRect();
                 const x = (e.clientX - rect.left) / rect.width;
                 const y = (e.clientY - rect.top) / rect.height;
-                
+
                 // Normalize to -1 to 1
                 this.mouse.x = (x - 0.5) * 2;
                 this.mouse.y = (y - 0.5) * 2;
@@ -213,12 +213,12 @@ class RibbyModel {
         // Update model rotation
         if (this.modelGroup) {
             const sens = this.modelConfig.mouseSensitivity;
-            
+
             // Target rotations based on mouse
             // Mouse X controls Y rotation (Yaw)
             // Mouse Y controls X rotation (Pitch)
-            
-            const targetRotX = this.modelConfig.rotation.x + (this.mouse.y * sens * 0.5); 
+
+            const targetRotX = this.modelConfig.rotation.x + (this.mouse.y * sens * 0.5);
             const targetRotY = this.modelConfig.rotation.y + (this.mouse.x * sens * 0.5);
 
             // Lerp current rotation to target
