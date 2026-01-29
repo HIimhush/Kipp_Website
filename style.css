@@ -260,7 +260,26 @@ main {
 @media (max-width: 768px) {
     .desktop-nav {
         display: none;
-        /* Hide for now, implement mobile menu logic later if requested */
+    }
+    
+    .desktop-nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px; /* Below header */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        background-color: white;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        align-items: center;
+    }
+
+    .desktop-nav.active ul {
+        flex-direction: column;
+        gap: 15px;
     }
 
     .mobile-menu-toggle {
