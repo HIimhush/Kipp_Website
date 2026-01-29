@@ -32,13 +32,11 @@ class RibbyModel {
         console.log('RibbyModel: Initializing...');
 
      
-        // Adjust these values to position the model exactly where you want it
         this.modelConfig = {
-            // Position (x, y, z)
             position: {
-                x: -0.8,      // Left (-) / Right (+)
-                y: 0,   // Down (-) / Up (+) -- Adjusted down slightly
-                z: -15,    // Back (-) / Front (+)
+                x: -0.8,     
+                y: 0,   
+                z: -15,   
             },
             
             // Initial rotation
