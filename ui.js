@@ -44,9 +44,17 @@ function initDynamicHeader() {
 }
 
 function initRibbyPopup() {
-    const triggerBtn = document.getElementById('why-ribby-btn');
-    const popup = document.getElementById('ribby-popup');
-    const closeBtn = document.getElementById('close-popup-btn');
+    // Initialize all popups
+    setupPopup('why-ribby-btn', 'ribby-popup', 'close-popup-btn');
+    setupPopup('compatibility-btn', 'compatibility-popup', 'close-comp-btn');
+    setupPopup('accessibility-btn', 'accessibility-popup', 'close-access-btn');
+    setupPopup('about-btn', 'about-popup', 'close-about-btn');
+}
+
+function setupPopup(triggerId, popupId, closeBtnId) {
+    const triggerBtn = document.getElementById(triggerId);
+    const popup = document.getElementById(popupId);
+    const closeBtn = document.getElementById(closeBtnId);
     const header = popup ? popup.querySelector('.popup-header') : null;
 
     if (!triggerBtn || !popup || !closeBtn || !header) return;
@@ -57,7 +65,7 @@ function initRibbyPopup() {
         popup.classList.remove('hidden');
         
         // Reset styles for center position (override any previous drag/close transforms)
-        popup.style.transition = 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.6s ease';
+        popup.style.transition = 'transform 0.9s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.9s ease';
         popup.style.transform = 'translate(-50%, -50%) scale(1)';
         popup.style.opacity = '1';
         popup.style.left = '50%';
@@ -89,7 +97,7 @@ function initRibbyPopup() {
         // We want to add deltaX/deltaY to that visual position.
         // So the new translate should be translate(calc(-50% + deltaX), calc(-50% + deltaY)).
         
-        popup.style.transition = 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.6s ease';
+        popup.style.transition = 'transform 0.9s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.9s ease';
         popup.style.transform = `translate(calc(-50% + ${deltaX}px), calc(-50% + ${deltaY}px)) scale(0)`;
         popup.style.opacity = '0';
 
@@ -97,7 +105,7 @@ function initRibbyPopup() {
             if (popup.style.opacity === '0') { // Check if still closed/closing
                  popup.classList.add('hidden');
             }
-        }, 600);
+        }, 900);
     });
 
     // Drag Functionality
@@ -135,7 +143,7 @@ function initRibbyPopup() {
             isDragging = false;
             header.style.cursor = 'grab';
             // Re-enable transition
-            popup.style.transition = 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.6s ease';
+            popup.style.transition = 'transform 0.9s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.9s ease';
         }
     });
 }
