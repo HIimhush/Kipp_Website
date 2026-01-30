@@ -167,7 +167,7 @@ main {
     background: linear-gradient(30deg, #4fc4b4 0%, #0a543e 100%);
     /* Green Gradient */
     text-align: center;
-    padding: 38px 100px 40px 100px;
+    padding: 100px 100px 40px 100px;
     border-radius: 50px;
     max-width: 100%;
     align-items: center;
@@ -261,19 +261,20 @@ main {
     .desktop-nav {
         display: none;
     }
-    
+
     .desktop-nav.active {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 80px; /* Below header */
+        top: 80px;
+        /* Below header */
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
         background-color: white;
         padding: 20px;
         border-radius: 20px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         align-items: center;
     }
 
@@ -505,7 +506,7 @@ main {
 }
 
 .card-subtitle {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     margin-bottom: 30px;
     line-height: 1.5;
     max-width: 500px;
@@ -517,7 +518,7 @@ main {
 }
 
 .card-accessibility .card-subtitle {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     /* Make it pop more on dark bg */
     color: #ffffff;
 }
@@ -582,14 +583,14 @@ main {
 /* Accessibility Icon - Centered and Big */
 .card-icon {
     position: absolute;
-    bottom: 10px;
+    bottom: -7px;
     left: 48%;
     transform: translateX(-45%) translateY(-11%);
     width: 350px;
     /* Really large */
     height: 350px;
     z-index: 2;
-    opacity: 0.95;
+    opacity: 1;
     display: flex;
     justify-content: center;
     align-items: center;
