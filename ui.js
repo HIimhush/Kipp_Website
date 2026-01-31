@@ -7,7 +7,38 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initDynamicHeader();
     initRibbyPopup();
+    initAudio();
 });
+
+function initAudio() {
+    const clickSound = new Audio('Recursos/SFX/click_sfx.mp3');
+    clickSound.volume = 0.5; // Adjust volume if needed
+
+    // Preload and unlock audio context on first interaction
+    const unlockAudio = () => {
+        clickSound.play().then(() => {
+            clickSound.pause();
+            clickSound.currentTime = 0;
+        }).catch(() => {});
+        document.removeEventListener('click', unlockAudio);
+        document.removeEventListener('touchstart', unlockAudio);
+    };
+    
+    document.addEventListener('click', unlockAudio);
+    document.addEventListener('touchstart', unlockAudio);
+
+    // Global click listener for SFX
+    document.addEventListener('click', (e) => {
+        const target = e.target.closest('button, a, .btn, .red-dot, .mobile-menu-toggle');
+        
+        if (target) {
+            // Clone node to allow rapid fire playback (overlapping sounds)
+            const soundClone = clickSound.cloneNode();
+            soundClone.volume = 0.5;
+            soundClone.play().catch(err => console.log('Audio play failed:', err));
+        }
+    });
+}
 
 function initMobileMenu() {
     const toggle = document.querySelector('.mobile-menu-toggle');
