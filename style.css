@@ -1,42 +1,42 @@
 /* Font Face for bups2.0 */
 @font-face {
     font-family: 'bups2.0';
-    src: url('Recursos/FONTS/FONT_bups/bups2.0-Regular.ttf') format('truetype');
+    src: url('/Recursos/FONTS/FONT_bups/bups2.0-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'ZT Nature';
-    src: url('/Kipp_Webpage/Recursos/FONTS/ZT Nature - TT/ZTNature-Thin.ttf') format('truetype');
+    src: url('/Recursos/FONTS/ZT Nature - TT/ZTNature-Thin.ttf') format('truetype');
     font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'ZT Nature';
-    src: url('Recursos/FONTS/ZT Nature - TT/ZTNature-Medium.ttf') format('truetype');
+    src: url('/Recursos/FONTS/ZT Nature - TT/ZTNature-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'ZT Nature';
-    src: url('Recursos/FONTS/ZT Nature - TT/ZTNature-SemiBold.ttf') format('truetype');
+    src: url('/Recursos/FONTS/ZT Nature - TT/ZTNature-SemiBold.ttf') format('truetype');
     font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'ZT Nature';
-    src: url('Recursos/FONTS/ZT Nature - TT/ZTNature-Bold.ttf') format('truetype');
+    src: url('/Recursos/FONTS/ZT Nature - TT/ZTNature-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'ZT Nature';
-    src: url('Recursos/FONTS/ZT Nature - TT/ZTNature-Black.ttf') format('truetype');
+    src: url('/Recursos/FONTS/ZT Nature - TT/ZTNature-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
 }
