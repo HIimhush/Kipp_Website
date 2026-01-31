@@ -62,14 +62,19 @@ function setupPopup(triggerId, popupId, closeBtnId) {
     // Open Popup
     triggerBtn.addEventListener('click', (e) => {
         e.preventDefault();
+        
+        const rect = triggerBtn.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
         popup.classList.remove('hidden');
         
         // Reset styles for center position (override any previous drag/close transforms)
         popup.style.transition = 'transform 0.9s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.9s ease';
         popup.style.transform = 'translate(-50%, -50%) scale(1)';
         popup.style.opacity = '1';
-        popup.style.left = '50%';
-        popup.style.top = '50%';
+        popup.style.left = `${centerX}px`;
+        popup.style.top = `${centerY}px`;
     });
 
     // Close Popup (Genie Effect)
