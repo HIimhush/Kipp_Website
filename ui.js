@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initAudio() {
     const clickSound = new Audio('Recursos/SFX/click_sfx.mp3');
-    clickSound.volume = 0.5; // Adjust volume if needed
+    clickSound.volume = 1; // Adjust volume if needed
 
     // Preload and unlock audio context on first interaction
     const unlockAudio = () => {
