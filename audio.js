@@ -1,6 +1,6 @@
 // Global audio objects
-const clickSound = new Audio('Recursos/SFX/click_sfx.mp3');
-const closeSound = new Audio('Recursos/SFX/close_popup_sfx.mp3');
+const clickSound = new Audio('/Recursos/SFX/click_sfx.mp3');
+const closeSound = new Audio('/Recursos/SFX/close_popup_sfx.mp3');
 clickSound.volume = 1;
 closeSound.volume = 0.5;
 
