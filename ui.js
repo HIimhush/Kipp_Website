@@ -51,6 +51,9 @@ function initRibbyPopup() {
     setupPopup('about-btn', 'about-popup', 'close-about-btn');
 }
 
+// Global z-index counter to manage popup stacking order
+let highestZIndex = 2000;
+
 function setupPopup(triggerId, popupId, closeBtnId) {
     const triggerBtn = document.getElementById(triggerId);
     const popup = document.getElementById(popupId);
@@ -67,6 +70,8 @@ function setupPopup(triggerId, popupId, closeBtnId) {
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
+        highestZIndex++;
+        popup.style.zIndex = highestZIndex;
         popup.classList.remove('hidden');
         
         // Reset styles for center position (override any previous drag/close transforms)
@@ -78,7 +83,9 @@ function setupPopup(triggerId, popupId, closeBtnId) {
     });
 
     // Close Popup (Genie Effect)
-    closeBtn.addEventListener('click', () => {
+    closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent triggering z-index update from container click
+
         const triggerRect = triggerBtn.getBoundingClientRect();
         const popupRect = popup.getBoundingClientRect();
 
@@ -112,12 +119,24 @@ function setupPopup(triggerId, popupId, closeBtnId) {
             }
         }, 900);
     });
+    
+    // Bring to front on mousedown
+    popup.addEventListener('mousedown', () => {
+        highestZIndex++;
+        popup.style.zIndex = highestZIndex;
+    });
 
     // Drag Functionality
     let isDragging = false;
     let startX, startY, initialLeft, initialTop;
 
-    header.addEventListener('mousedown', (e) => {
+    // Allow dragging from anywhere in the popup EXCEPT the text itself (to allow selection)
+    popup.addEventListener('mousedown', (e) => {
+        // If clicking on text, don't drag
+        if (e.target.closest('.popup-text') || e.target.tagName === 'P' || e.target.tagName === 'SPAN') {
+            return;
+        }
+
         isDragging = true;
         startX = e.clientX;
         startY = e.clientY;
@@ -126,6 +145,7 @@ function setupPopup(triggerId, popupId, closeBtnId) {
         initialLeft = parseFloat(style.left);
         initialTop = parseFloat(style.top);
         
+        popup.style.cursor = 'grabbing';
         header.style.cursor = 'grabbing';
         
         // Disable transition during drag for smoothness
@@ -135,12 +155,22 @@ function setupPopup(triggerId, popupId, closeBtnId) {
     window.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
         
-        e.preventDefault(); // Prevent text selection
+        e.preventDefault(); // Prevent text selection ONLY when we are explicitly dragging
         const dx = e.clientX - startX;
         const dy = e.clientY - startY;
 
         popup.style.left = `${initialLeft + dx}px`;
         popup.style.top = `${initialTop + dy}px`;
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (isDragging) {
+            isDragging = false;
+            popup.style.cursor = 'default';
+            header.style.cursor = 'grab';
+            // Re-enable transition
+            popup.style.transition = 'transform 0.9s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.9s ease';
+        }
     });
 
     window.addEventListener('mouseup', () => {

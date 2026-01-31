@@ -999,11 +999,10 @@ main {
     transform: translate(-50%, -50%);
     width: 450px;
     max-width: 90%;
-    background: rgba(240, 242, 242, 0.95);
-    backdrop-filter: blur(10px);
+    background: #f0f2f2;
     border-radius: 25px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid #000000;
     z-index: 2000;
     padding: 0;
     overflow: hidden;
@@ -1020,11 +1019,14 @@ main {
 }
 
 .popup-header {
-    padding: 20px 25px 5px;
+    background-color: #f7f3cb;
+    /* Light yellow from image */
+    padding: 15px 25px;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     cursor: grab;
-    /* Drag handle */
+    border-bottom: 2px solid #000000;
 }
 
 .popup-header:active {
@@ -1032,14 +1034,14 @@ main {
 }
 
 .red-dot {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     background-color: #ff3b30;
     border-radius: 50%;
     cursor: pointer;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease, background-color 0.2s;
-    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .red-dot:hover {
