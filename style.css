@@ -1023,7 +1023,7 @@ main {
 }
 
 .popup-header {
-    background-color: #f7f3cb;
+    background-color: #cbf7d7;
     /* Light yellow from image */
     padding: 15px 25px;
     display: flex;
@@ -1031,6 +1031,26 @@ main {
     align-items: center;
     cursor: grab;
     border-bottom: 2px solid #000000;
+    position: relative;
+    /* For absolute positioning of the drag icon */
+}
+
+.drag-icon {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    /* Allow drag events to pass through to the header */
+}
+
+.popup-header:hover .drag-icon {
+    color: rgba(0, 0, 0, 0.6);
+    /* Darken on hover for feedback */
 }
 
 .popup-header:active {
