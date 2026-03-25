@@ -15,6 +15,7 @@
             font-family: 'Poppins', 'Arial', sans-serif;
             min-height: 100vh;
         }
+
         .privacy-container {
             max-width: 800px;
             margin: 0 auto;
@@ -24,22 +25,26 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             border: 1px solid #eaeaea;
         }
+
         .privacy-title {
             font-size: 2.5rem;
             font-weight: 700;
             color: #1a1a1a;
             margin-bottom: 5px;
         }
+
         .privacy-header {
             margin-bottom: 40px;
             border-bottom: 2px solid #f0f0f0;
             padding-bottom: 20px;
         }
+
         .privacy-meta {
             font-size: 0.9rem;
             color: #666;
             margin-bottom: 20px;
         }
+
         .privacy-content h2 {
             font-size: 1.5rem;
             font-weight: 700;
@@ -47,6 +52,7 @@
             margin-top: 40px;
             margin-bottom: 15px;
         }
+
         .privacy-content h3 {
             font-size: 1.2rem;
             font-weight: 600;
@@ -54,21 +60,25 @@
             margin-top: 25px;
             margin-bottom: 10px;
         }
+
         .privacy-content p {
             margin-bottom: 15px;
             line-height: 1.7;
             color: #4a4a4a;
         }
+
         .privacy-content ul {
             margin-bottom: 20px;
             padding-left: 20px;
             color: #4a4a4a;
         }
+
         .privacy-content li {
             margin-bottom: 8px;
             line-height: 1.6;
             color: #4a4a4a;
         }
+
         .privacy-content strong {
             color: #222;
         }
@@ -107,12 +117,15 @@
                     <strong>Effective Date:</strong> March 25th 2026<br>
                     <strong>Contact:</strong> shukotirado@icloud.com, alejandrogarcialira25@gmail.com
                 </div>
-                <p>KiPP is a drawing and creativity app for iOS and iPadOS. This policy explains what data the app handles — which is, by design, almost none. It is written to comply with Apple's App Store Review Guidelines (Section 5.1), GDPR, CCPA, and other applicable privacy frameworks.</p>
+                <p>KiPP is a educational app for iOS and iPadOS. This policy explains what data the app handles — which
+                    is, by design, almost none. It is written to comply with Apple's App Store Review Guidelines
+                    (Section 5.1), GDPR, CCPA, and other applicable privacy frameworks.</p>
             </div>
 
             <div class="privacy-content">
                 <h2>1. What We Collect</h2>
-                <p>KiPP does not collect personal information. The following is a complete account of all data the app touches:</p>
+                <p>KiPP does not collect personal information. The following is a complete account of all data the app
+                    touches:</p>
                 <ul>
                     <li>Contact or identity information — not collected</li>
                     <li>Location data — not collected</li>
@@ -125,21 +138,31 @@
                 </ul>
 
                 <h2>2. What Stays on the Device</h2>
-                <p>Two types of data are stored locally within the app's sandboxed container and never leave the device:</p>
-                
+                <p>Two types of data are stored locally within the app's sandboxed container and never leave the device:
+                </p>
+
                 <h3>Drawings</h3>
-                <p>Artwork created in Free Draw and Drawing Quest is saved as PNG files in the app's Documents directory. These files are only visible inside the app's Museum gallery and are deleted when the user clears the gallery or uninstalls the app.</p>
-                
+                <p>Artwork created in Free Draw and Drawing Quest is saved as PNG files in the app's Documents
+                    directory. These files are only visible inside the app's Museum gallery and are deleted when the
+                    user clears the gallery or uninstalls the app.</p>
+
                 <h3>Game Progress</h3>
-                <p>A record of completed activities where a star was earned is stored as a JSON set of non-identifying string identifiers (e.g., "memory", "shapes3d") in UserDefaults. This is used solely to display progress and unlock reward animations. It contains no personal information.</p>
-                
+                <p>A record of completed activities where a star was earned is stored as a JSON set of non-identifying
+                    string identifiers (e.g., "memory", "shapes3d") in UserDefaults. This is used solely to display
+                    progress and unlock reward animations. It contains no personal information.</p>
+
                 <h3>Preferences</h3>
-                <p>Language selection, dark mode state, and first-launch flags are stored in UserDefaults as functional values with no personal content. Accessibility settings are kept in memory for the session only and are not persisted.</p>
+                <p>Language selection, dark mode state, and first-launch flags are stored in UserDefaults as functional
+                    values with no personal content. Accessibility settings are kept in memory for the session only and
+                    are not persisted.</p>
 
                 <h2>3. Multiplayer: Local Network Only</h2>
-                <p>The Drawing Quest activity includes an optional multiplayer mode that uses Apple's <strong>MultipeerConnectivity</strong> framework. This operates over local Wi-Fi and Bluetooth to connect two nearby devices. No data passes through the internet or any external server.</p>
-                <p>The app requests <strong>NSLocalNetworkUsageDescription</strong> only when the user explicitly launches multiplayer. Declining this permission has no effect on any other feature.</p>
-                
+                <p>The Drawing Quest activity includes an optional multiplayer mode that uses Apple's
+                    <strong>MultipeerConnectivity</strong> framework. This operates over local Wi-Fi and Bluetooth to
+                    connect two nearby devices. No data passes through the internet or any external server.</p>
+                <p>The app requests <strong>NSLocalNetworkUsageDescription</strong> only when the user explicitly
+                    launches multiplayer. Declining this permission has no effect on any other feature.</p>
+
                 <h3>What gets transmitted during a session</h3>
                 <p>All data exchanged between devices is limited to:</p>
                 <ul>
@@ -149,16 +172,22 @@
                     <li>Two score values</li>
                     <li>The user's drawing, as a Base64 PNG string, shown to the opponent</li>
                 </ul>
-                <p>No user names, account data, or device identifiers are included in any payload. All traffic is encrypted using MCEncryptionPreference.required.</p>
-                
+                <p>No user names, account data, or device identifiers are included in any payload. All traffic is
+                    encrypted using MCEncryptionPreference.required.</p>
+
                 <h3>Peer Display Name</h3>
-                <p>The device's name (from iOS Settings) is used as the <strong>MCPeerID</strong> display name so each player can see who they're competing against. This value is sent only to the connected peer and is discarded when the session ends — it is never logged or stored.</p>
-                
+                <p>The device's name (from iOS Settings) is used as the <strong>MCPeerID</strong> display name so each
+                    player can see who they're competing against. This value is sent only to the connected peer and is
+                    discarded when the session ends — it is never logged or stored.</p>
+
                 <h3>After the session</h3>
-                <p>Nothing is retained. Received drawings and peer names are held in memory during the session and discarded immediately when it ends.</p>
+                <p>Nothing is retained. Received drawings and peer names are held in memory during the session and
+                    discarded immediately when it ends.</p>
 
                 <h2>4. Third-Party SDKs</h2>
-                <p>KiPP uses no third-party SDKs, analytics services, advertising networks, or crash reporters. All functionality is built on Apple's first-party frameworks: SwiftUI, AVFoundation, MultipeerConnectivity, SceneKit, PencilKit, AudioToolbox, and Combine.</p>
+                <p>KiPP uses no third-party SDKs, analytics services, advertising networks, or crash reporters. All
+                    functionality is built on Apple's first-party frameworks: SwiftUI, AVFoundation,
+                    MultipeerConnectivity, SceneKit, PencilKit, AudioToolbox, and Combine.</p>
 
                 <h2>5. Privacy Commitments</h2>
                 <p>KiPP is built with a minimal-data approach. Specifically:</p>
@@ -171,12 +200,16 @@
                 </ul>
 
                 <h2>6. Apple Services</h2>
-                <p>KiPP does not use iCloud, CloudKit, Game Center, Sign in with Apple, Apple Pay, or any other Apple platform service that sends user data to Apple's servers.</p>
+                <p>KiPP does not use iCloud, CloudKit, Game Center, Sign in with Apple, Apple Pay, or any other Apple
+                    platform service that sends user data to Apple's servers.</p>
 
                 <h2>7. Declared Permissions</h2>
-                <p><strong>NSLocalNetworkUsageDescription</strong> — Used by MultipeerConnectivity for the optional peer-to-peer Drawing Quest mode. Requested only when the user explicitly initiates multiplayer.</p>
-                <p><strong>NSBonjourServices (_kippdraw1._tcp)</strong> — Declares the Bonjour service type used for local peer discovery via MultipeerConnectivity.</p>
-                <p>No other permissions (camera, microphone, location, contacts, health, photo library, Bluetooth APIs) are declared or requested.</p>
+                <p><strong>NSLocalNetworkUsageDescription</strong> — Used by MultipeerConnectivity for the optional
+                    peer-to-peer Drawing Quest mode. Requested only when the user explicitly initiates multiplayer.</p>
+                <p><strong>NSBonjourServices (_kippdraw1._tcp)</strong> — Declares the Bonjour service type used for
+                    local peer discovery via MultipeerConnectivity.</p>
+                <p>No other permissions (camera, microphone, location, contacts, health, photo library, Bluetooth APIs)
+                    are declared or requested.</p>
 
                 <h2>8. Data Deletion</h2>
                 <p>All locally stored data can be removed at any time:</p>
@@ -188,12 +221,17 @@
                 <p>There is no personal data held by us to request deletion of, since nothing leaves the device.</p>
 
                 <h2>9. Policy Changes</h2>
-                <p>If we update this policy, the revised version will be published at the URL listed in the App Store Connect record for KiPP and the Effective Date will be updated. Continued use of the app after a revision constitutes acceptance.</p>
+                <p>If we update this policy, the revised version will be published at the URL listed in the App Store
+                    Connect record for KiPP and the Effective Date will be updated. Continued use of the app after a
+                    revision constitutes acceptance.</p>
 
                 <h2>10. Contact</h2>
                 <p>[Developer / Entity Name]<br>
-                <strong>Email:</strong> shukotirado@icloud.com, alejandrogarcialira25@gmail.com</p>
-                <p><em>This policy is provided in satisfaction of Apple App Store Review Guidelines Section 5.1 and is intended to be hosted at a publicly accessible URL declared in the App Store Connect record for KiPP.</em></p>
+                    <strong>Email:</strong> shukotirado@icloud.com, alejandrogarcialira25@gmail.com
+                </p>
+                <p><em>This policy is provided in satisfaction of Apple App Store Review Guidelines Section 5.1 and is
+                        intended to be hosted at a publicly accessible URL declared in the App Store Connect record for
+                        KiPP.</em></p>
             </div>
         </div>
     </main>
